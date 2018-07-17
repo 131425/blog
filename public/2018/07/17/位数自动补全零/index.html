@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="专注前端">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="Magical">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="javascript 实现数字补全不足自动补零"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="专注前端" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="何雅洁的博客"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>javascript 实现数字补全不足自动补零 - 何雅洁的博客</title>
+
+
+  <link rel="shortcut icon" href="/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="/" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="何雅洁的博客" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/">
+            <span>何雅洁的博客</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            javascript 实现数字补全不足自动补零
+            
+          </h1>
+         
+        </div>
+         <p class="a-posted-on">
+          2018-07-17
+          </p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <blockquote>
+<p>项目中需要实现 “ 按照指定长度为数字前面补零输出 ” 的方法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function xx(num, length) &#123;</span><br><span class="line">  return (num/Math.pow(10,length)).toFixed(length).substr(2);</span><br><span class="line">&#125;</span><br><span class="line">xx(5,3) =&gt; 输出 &quot;005&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>做电商项目可能会遇到这样的，如下图</p>
+</blockquote>
+<p><img src="\assets\images\buquan.png" alt=""></p>
+<p>需求： 起始流水号  -  层数  -  流水号位数</p>
+<p>按上图举例，输入是这个样子：</p>
+<p>0001   0002   0003  0004   0005  0006  0007  0008   0009  0010  0011</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* len 流水号位数</span><br><span class="line">* num 层数</span><br><span class="line">*/</span><br><span class="line">function xx(len,num) &#123;</span><br><span class="line">    let count = &apos;0&apos;.repeat(len-1);</span><br><span class="line">    for(let i=1; i&lt;=num; i++)&#123;</span><br><span class="line">        if(i&lt;10)&#123;</span><br><span class="line">           console.log(count + i)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">       	   console.log(count.slice(0,-1) + i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+           
+              <li class="next">
+              <a href="/2018/07/17/vue-axios的同步问题/" rel="prev">上一篇</a>
+            </li>
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      
+<section id="comment">
+  <!-- <h1 class="title">Comments</h1> -->
+
+  
+</section>
+
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>何雅洁的博客 &copy; 2018</span>
+    
+      <span class="split">|</span>
+      <span>一头笨笨的猪的技术小屋</span>
+    
+  </p>
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/js/app.js"></script>
+
+
+
+</body>
+
+</html>
