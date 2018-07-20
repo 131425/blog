@@ -13,7 +13,7 @@ tags:
 
 
 
-```
+```javascript
 methods:{
    	getDeviceType (callback) {
         // 方法里面的事情做完了,或者你觉得该调用的时候
