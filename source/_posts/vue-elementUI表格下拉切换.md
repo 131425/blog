@@ -42,16 +42,16 @@ tags:
             </template>
         </el-table-column>
         <el-table-column
-                label="商品 ID"
-                prop="id">
+            label="商品 ID"
+            prop="id">
         </el-table-column>
         <el-table-column
-                label="商品名称"
-                prop="name">
+            label="商品名称"
+            prop="name">
         </el-table-column>
         <el-table-column
-                label="描述"
-                prop="desc">
+            label="描述"
+            prop="desc">
         </el-table-column>
     </el-table>
 </template>
@@ -96,7 +96,6 @@ tags:
               } else {
                   this.expands.remove(row.id);
               }
-
           }
       }
 
