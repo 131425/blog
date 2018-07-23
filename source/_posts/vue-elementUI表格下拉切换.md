@@ -13,7 +13,6 @@ tags:
         :data="tableData5"
         style="width: 100%"
         row-key="id"
-        :expand-row-keys="expands"
         @row-click="rowClick">
         <el-table-column type="expand">
             <template slot-scope="props">
