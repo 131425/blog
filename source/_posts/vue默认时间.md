@@ -3,12 +3,12 @@ layout: posts
 title: vue默认时间
 date: 2018-07-23 15:15:15
 tags:
--vue
--ElementUI
--DateTimePicker 日期时间选择器 默认时间
+- vue
+- ElementUI
+- DateTimePicker 日期时间选择器 默认时间
 ---
 
-> 项目中用到 ElementUI 里的 DateTimePicker 日期时间选择器 默认时间，参考以下代码：
+> 项目中用到 ElementUI 里的 DateTimePicker 日期时间选择器 默认时间,我列举的只是最笨的方法，大家也可以利用插件（比如：date_fns  ）转变格式来显示默认时间，以下仅作参考喔~
 
 ```javascript
 <el-date-picker v-model="com_input_date" type="datetimerange"></el-date-picker>
